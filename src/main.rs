@@ -67,10 +67,10 @@ fn get_log_filenames3() -> Result<Vec<String>> {
 async fn main() -> anyhow::Result<()> {
     println!("Hello, world!");
 
-    let log_files = tokio::task::spawn_blocking(get_log_filenames).await?;
-    println!("{:?}", log_files);
-    //let log_files_json = serde_json::to_string(&log_files).unwrap();
-    //println!("{}", log_files_json);
+    if let Ok(log_files) = tokio::task::spawn_blocking(get_log_filenames).await? {
+        let log_files_json = serde_json::to_string(&log_files).unwrap();
+        println!("{}", log_files_json);
+    }
 
     return Ok(());
 }
