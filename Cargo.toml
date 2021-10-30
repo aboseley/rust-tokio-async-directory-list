@@ -1,5 +1,5 @@
 [package]
-name = "rust-directory-list"
+name = "rust-tokio-async-directory-list"
 version = "0.1.0"
 edition = "2021"
 
